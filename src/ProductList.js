@@ -5,7 +5,7 @@ function ProductList({ products, addToCart }) {
     <div className="product-list-container">
       <h2 className="product-list-header">📦 Products 📦</h2>
       <ul className="product-list">
-        {products.map((product) => (
+        {Array.isArray(products) && products.map((product) => (
           <li key={product.id} className="product-item">
             <span className="product-name">{product.name}</span>
             <span className="product-price">${product.price}</span>

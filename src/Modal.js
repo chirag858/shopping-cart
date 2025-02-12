@@ -16,7 +16,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
     if (!isOpen) return null;
     return (
         <div>
-            <Modal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Example Modal">
+            <Modal isOpen={isOpen} onRequestClose={(val) =>onRequestClose(val)} contentLabel="Example Modal">
                 <button onClick={onRequestClose} style={{ display: "flex", float: "right" }}>Close</button>
                 <h2>Add Products here</h2>
                 <input

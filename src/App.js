@@ -18,7 +18,8 @@ function App() {
   const removeFromCart = (productId) => {
     setCart(cart.filter((item) => item.id !== productId));
   };
-  const handleClose = ()=>{
+  const handleClose = (val)=>{
+    
     setModalIsOpen(false);
   }
   return (
