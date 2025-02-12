@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
+import AddProductModal from "./Modal";
 
 function App() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const products = [
     { id: 1, name: "Laptop", price: 1000 },
     { id: 2, name: "Phone", price: 500 },
@@ -22,6 +24,17 @@ function App() {
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <h1>🛒 Shopping Cart 🛒</h1>
+      <button className="add-product-button" onClick={() => setModalIsOpen(true)}>
+        Add Products
+      </button>
+      
+      <AddProductModal
+          isOpen={modalIsOpen}
+          onRequestClose={() => {
+            setModalIsOpen(false);
+          }}
+          contentLabel="Example Modal"
+        />
       <ProductList products={products} addToCart={addToCart} />
       <Cart cartItems={cart} removeFromCart={removeFromCart} />
     </div>
