@@ -5,9 +5,7 @@ import AddProductModal from "./Modal";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [products,setProducts] = useState([
-    
-  ])
+  const [products,setProducts] = useState([])
 
   const [cart, setCart] = useState([]);
 
