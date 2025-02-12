@@ -14,7 +14,6 @@ function ProductList({ products, addToCart }) {
         <AddProductModal
           isOpen={modalIsOpen}
           onRequestClose={() => {
-            console.log("lollll");
             setModalIsOpen(false);
           }}
           contentLabel="Example Modal"
