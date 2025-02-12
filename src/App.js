@@ -20,7 +20,9 @@ function App() {
   const removeFromCart = (productId) => {
     setCart(cart.filter((item) => item.id !== productId));
   };
-
+  const handleClose = ()=>{
+    setModalIsOpen(false);
+  }
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <h1>🛒 Shopping Cart 🛒</h1>
@@ -30,9 +32,7 @@ function App() {
       
       <AddProductModal
           isOpen={modalIsOpen}
-          onRequestClose={() => {
-            setModalIsOpen(false);
-          }}
+          onRequestClose={handleClose}
           contentLabel="Example Modal"
         />
       <ProductList products={products} addToCart={addToCart} />
