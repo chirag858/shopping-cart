@@ -5,11 +5,9 @@ import AddProductModal from "./Modal";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const products = [
-    { id: 1, name: "Laptop", price: 1000 },
-    { id: 2, name: "Phone", price: 500 },
-    { id: 3, name: "Headphones", price: 200 },
-  ];
+  const [products,setProducts] = useState([
+    
+  ])
 
   const [cart, setCart] = useState([]);
 
@@ -34,6 +32,11 @@ function App() {
           isOpen={modalIsOpen}
           onRequestClose={handleClose}
           contentLabel="Example Modal"
+          onSave={val => setProducts(prev => ([...prev,{
+            id:products.length +1,
+            name:val.name,
+            price:val.price
+          }]))}
         />
       <ProductList products={products} addToCart={addToCart} />
       <Cart cartItems={cart} removeFromCart={removeFromCart} />

@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-const AddProductModal = ({ isOpen, onRequestClose }) => {
+const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
     let [inputValue, setInputValue] = useState("");
     let [inputNumber, setInputNumber] = useState(0);
     const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
-        }
+        onSave({
+            name: inputValue,
+            price: inputNumber
+        })
+        onRequestClose(false)
+        // if (e.key === "Enter") {
+        // }
     };
     if (!isOpen) return null;
     return (
@@ -19,7 +24,7 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={handleKeyPress}
+                    // onKeyDown={handleKeyPress}
                     placeholder="Enter a new Product..."
                 />
                 <input
@@ -27,7 +32,7 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
                     type="number"
                     value={inputNumber}
                     onChange={(e) => setInputNumber(e.target.value)}
-                    onKeyDown={handleKeyPress}
+                    // onKeyDown={handleKeyPress}
                     placeholder="Enter a Price"
                 />
                 <button disabled={!inputNumber || !inputValue} onClick={handleKeyPress}>Add Product</button>
