@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-// import AddProductModal from "./Modal";
 
 function ProductList({ products, addToCart }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   return (
     <div className="product-list-container">
       <h2 className="product-list-header">📦 Products 📦</h2>
