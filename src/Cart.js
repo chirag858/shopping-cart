@@ -11,7 +11,7 @@ function Cart({ cartItems, removeFromCart }) {
     <div>
       <h2>🛍️ Your Cart</h2>
       <ul>
-        {cartItems.map((item) => (
+        {Array.isArray(cartItems) && cartItems.map((item) => (
           <li key={item.id}>
             {item.name} - ${item.price}
             <button onClick={() => removeFromCart(item.id)} style={{ marginLeft: "10px", color: "red" }}>
