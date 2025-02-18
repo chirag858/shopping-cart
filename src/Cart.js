@@ -1,7 +1,7 @@
 import React from "react";
 
 function Cart({ cartItems, removeFromCart }) {
-  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cartItems.reduce((total, item) => total + Number(item.price), 0);
 
   if (!cartItems.length) {
     return <p>Your cart is empty.</p>

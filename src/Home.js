@@ -5,8 +5,7 @@ import AddProductModal from "./Modal";
 
 function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [products,setProducts] = useState([])
-
+  const [products,setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
@@ -16,8 +15,7 @@ function Home() {
   const removeFromCart = (productId) => {
     setCart(cart.filter((item) => item.id !== productId));
   };
-  const handleClose = (val)=>{
-    
+  const handleClose = (val)=>{  
     setModalIsOpen(false);
   }
   return (
