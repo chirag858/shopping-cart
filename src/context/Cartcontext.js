@@ -1,23 +1,26 @@
-import React, { createContext, useContext, useState } from "react";
+import React from "react";
+const cartContext = React.createContext();
+export default cartContext;
 
-// Create Context
-const CartContext = createContext();
+// import React, { createContext, useContext, useState } from "react";
 
-// Provider Component
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+// // Create Context
+// const CartContext = createContext();
 
-  // Function to add products to the cart
-  const addProduct = (productItem) => {
-    setCart([...cart, productItem]);
-  };
+// // Provider Component
+// export const CartProvider = ({ children }) => {
+//   const [cart, setCart] = useState([]);
 
-  return (
-    <CartContext.Provider value={{ cart, addProduct }}>
-      {children}
-    </CartContext.Provider>
-  );
-};
+//   // Function to add products to the cart
+//   const addProduct = (productItem) => {
+//     setCart([...cart, productItem]);
+//   };
 
-// Custom Hook for using Cart Context
-export const useCart = () => useContext(CartContext);
+//   return (
+//     <CartContext.Provider value={{ cart, addProduct }}>
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };
+
+// export const useCart = () => useContext(CartContext);
