@@ -4,11 +4,9 @@ import Home from "./Home.js";
 import AboutUs from "./Aboutus.js";
 import Navbar from "./Navbar"; // Adjust the path as needed
 import Products from "./Products.js";
-import { CartContextProvider } from "./context/Cartcontextprovider.jsx"; // Use named import
 
 function App() {
   return (
-    <CartContextProvider>
       <Router>
         <Navbar />
         <div className="container mx-auto p-4">
@@ -19,7 +17,6 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </CartContextProvider>
   );
 }
 
