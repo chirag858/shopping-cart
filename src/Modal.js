@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import ProductList from "./ProductList";
+import { useCart } from "./context/CartContextProvider";
 
 const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
+      const { products, cart, addProduct, addToCart, removeFromCart } = useCart();
+      console.log(products);
+      console.log("products is ");
     let [inputValue, setInputValue] = useState("");
     let [inputNumber, setInputNumber] = useState(0);
     const handleKeyPress = (e) => {
@@ -37,7 +42,8 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                 />
                 <button disabled={!inputNumber || !inputValue} onClick={handleKeyPress}>Add Product</button>
                 <br></br>
-            </Modal>
+                <ProductList products={products} addToCart={addToCart} />
+                </Modal>
         </div>
     );
 };
