@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Cartcontext from "./Cartcontext";
+import React, { useState, useContext } from "react";
+import CartContext from "./Cartcontext"; // Ensure the correct casing of the file name
 
-export const CartProvider = ({ children }) => {
+export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   // Function to add products to the cart
@@ -10,9 +10,11 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <Cartcontext.Provider value={{ cart, addProduct }}>
+    <CartContext.Provider value={{ cart, addProduct }}>
       {children}
-    </Cartcontext.Provider>
+    </CartContext.Provider>
   );
 };
-export const useCart = () => useContext(Cartcontext);
+
+// Custom hook to use the CartContext
+export const useCart = () => useContext(CartContext);
