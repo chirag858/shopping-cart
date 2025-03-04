@@ -1,6 +1,10 @@
-import React from "react";
+import React , {useState} from "react";
+import ProductList from "./ProductList";
+import { useCart } from "./context/CartContextProvider";
 
 const Products = () => {
+  let [onlyList , setOnlyList] = useState(true);
+  const { products, cart, addProduct, addToCart, removeFromCart } = useCart();
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6">Product List</h1>
@@ -20,7 +24,9 @@ const Products = () => {
           Our mission is to make shopping easy and enjoyable for everyone. We strive to bring 
           the latest trends and premium products to our customers at the best prices.
         </p>
-      </section>      
+      </section>  
+      <ProductList products={products} addToCart={addToCart} onlyList={onlyList}  />
+    
     </div>
   );
 };

@@ -4,47 +4,57 @@ import ProductList from "./ProductList";
 import { useCart } from "./context/CartContextProvider";
 
 const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
-      const { products, cart, addProduct, addToCart, removeFromCart } = useCart();
-      console.log(products);
-      console.log("products is ");
-    let [inputValue, setInputValue] = useState("");
-    let [inputNumber, setInputNumber] = useState(0);
-    const handleKeyPress = (e) => {
+    const { products, addToCart } = useCart();
+    const [inputValue, setInputValue] = useState("");
+    const [inputNumber, setInputNumber] = useState("");
+
+    const handleSave = () => {
         onSave({
             name: inputValue,
-            price: inputNumber
-        })
-        onRequestClose(false)
-        // if (e.key === "Enter") {
-        // }
+            price: parseFloat(inputNumber) || 0,
+        });
+        setInputValue("");
+        setInputNumber("");
     };
+
     if (!isOpen) return null;
+
     return (
-        <div>
-            <Modal isOpen={isOpen} onRequestClose={(val) =>onRequestClose(val)} contentLabel="Example Modal">
-                <button onClick={onRequestClose} style={{ display: "flex", float: "right" }}>Close</button>
-                <h2>Add Products here</h2>
-                <input
-                    className="input-text"
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    // onKeyDown={handleKeyPress}
-                    placeholder="Enter a new Product..."
-                />
-                <input
-                    className="input-text"
-                    type="number"
-                    value={inputNumber}
-                    onChange={(e) => setInputNumber(e.target.value)}
-                    // onKeyDown={handleKeyPress}
-                    placeholder="Enter a Price"
-                />
-                <button disabled={!inputNumber || !inputValue} onClick={handleKeyPress}>Add Product</button>
-                <br></br>
-                <ProductList products={products} addToCart={addToCart} />
-                </Modal>
-        </div>
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            contentLabel="Add Product Modal"
+        >
+            <button
+                onClick={onRequestClose}
+                style={{ display: "flex", float: "right" }}
+            >
+                Close
+            </button>
+            <h2>Add Products</h2>
+            <input
+                className="input-text"
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Enter a product name..."
+            />
+            <input
+                className="input-text"
+                type="number"
+                value={inputNumber}
+                onChange={(e) => setInputNumber(e.target.value)}
+                placeholder="Enter a price"
+            />
+            <button
+                disabled={!inputValue || !inputNumber}
+                onClick={handleSave}
+            >
+                Add Product
+            </button>
+            <br />
+            <ProductList products={products} addToCart={addToCart} onlyList />
+        </Modal>
     );
 };
 

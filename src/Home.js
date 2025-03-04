@@ -29,7 +29,7 @@ function Home() {
         contentLabel="Add Product Modal"
         onSave={handleSaveProduct}
       />
-      <ProductList products={products} addToCart={addToCart} />
+      <ProductList products={products} addToCart={addToCart} onlyList={false}  />
       <Cart cartItems={cart} removeFromCart={removeFromCart} />
     </div>
   );
