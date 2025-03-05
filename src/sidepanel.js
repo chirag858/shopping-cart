@@ -13,7 +13,8 @@ const Sidebar = (flexValue, heightValue) => {
         { to: "/products", label: "Categories" },
         { to: "/analytics", label: "Analytics" },
         { to: "/reports", label: "Reports" },
-        { to: "/promocode", label: "Promo Code" }
+        { to: "/promocode", label: "Promo Code" },
+        { to: "/logout", label: "Logout" }
     ].map((item, index) => (
         <li key={index} style={{height: "55px"}}>
             <Link 
