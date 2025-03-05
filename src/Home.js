@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
-import AddProductModal from "./Modal";
+import AddProductModal from "./modals/Modal";
 import { useCart } from "./context/CartContextProvider";
 
 function Home() {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import ProductList from "./ProductList";
-import { useCart } from "./context/CartContextProvider";
+import ProductList from "../ProductList";
+import { useCart } from "../context/CartContextProvider";
 
 const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
     const { products, addToCart } = useCart();
