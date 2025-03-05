@@ -8,19 +8,19 @@ import Sidebar from "./sidepanel.js";
 
 function App() {
   return (
-      <Router>
-        <Navbar />
-        <div style={{display : "flex" , height: "630px"}}>
-        <Sidebar flex={"0.2"}  height={"630px"} />
-        <div className="container mx-auto p-4" style={{flex:"0.8"}}>
+    <Router>
+      <Navbar />
+      <div style={{ display: "flex", height: "630px" }}>
+        <Sidebar flex={"0.2"} height={"630px"} />
+        <div className="container mx-auto p-4" style={{ flex: "0.8" }}>
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/aboutus" exact element={<AboutUs />} />
             <Route path="/products" exact element={<Products />} />
           </Routes>
         </div>
-        </div>
-      </Router>
+      </div>
+    </Router>
   );
 }
 

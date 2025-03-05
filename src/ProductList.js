@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductList({ products, addToCart , onlyList }) {
+function ProductList({ products, addToCart, onlyList }) {
   return (
     <div className="product-list-container">
       <h2 className="product-list-header">📦 Products 📦</h2>
@@ -13,13 +13,13 @@ function ProductList({ products, addToCart , onlyList }) {
               Add to Cart
             </button> */}
             {!onlyList && (
-                <button
-                  className="add-to-cart-button"
-                  onClick={() => addToCart(product)}
-                >
-                  Add to Cart
-                </button>
-              )}
+              <button
+                className="add-to-cart-button"
+                onClick={() => addToCart(product)}
+              >
+                Add to Cart
+              </button>
+            )}
 
           </li>
         ))}
