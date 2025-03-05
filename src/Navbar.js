@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link to="/contact" className="text-white text-lg font-medium hover:text-gray-300 transition duration-300">Contact</Link>
           </li>
         </ul>
-        <img src="https://customsbuckets.s3.us-west-2.amazonaws.com/0a954356-6f6a-4254-a1c1-a98891778415-_AVR8620.png" style={{width: "50px",height : "50px", borderRadius:"100%" , marginLeft : "50px"}}/>
+        <img src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F39646165-c2ef-4be2-8c1e-acd989f9525a-blue-circle-with-white-user_78370-4707.jpg" style={{width: "50px",height : "50px", borderRadius:"100%" , marginLeft : "50px"}}/>
 
       </div>
     </nav>
