@@ -17,6 +17,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
         });
         setInputValue("");
         setInputNumber("");
+        setInputCategoryValue("");
     };
 
     if (!isOpen) return null;
@@ -34,11 +35,12 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                 Close
             </button>
             <h2>Add Products</h2>
-            <div style={{display : "flex", justifyContent :"space-between", width : "800px"}}>
+            <div style={{display : "flex", justifyContent :"space-between", width : "1300px"}}>
+            <div style={{display : "flex", justifyContent :"space-between", width : "100%"}}>
             <input
                 className="input-text"
                 type="text"
-                style={{width : "320px",height : "20px"}}
+                style={{width : "300px",height : "20px"}}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Enter a product name..."
@@ -46,7 +48,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
             <input
                 className="input-text"
                 type="text"
-                style={{width : "320px",height : "20px"}}
+                style={{width : "300px",height : "20px"}}
                 value={inputCategoryValue}
                 onChange={(e) => setInputCategoryValue(e.target.value)}
                 placeholder="Catgory"
@@ -54,17 +56,20 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
             <input
                 className="input-text"
                 type="number"
-                style={{width : "320px",height : "20px"}}
+                style={{width : "300px",height : "20px"}}
                 value={inputNumber}
                 onChange={(e) => setInputNumber(e.target.value)}
                 placeholder="Enter a price"
             />
+            </div>
+            <div style={{display : "flex", justifyContent : "space-around" , width : "300px"}} >
             <button
-                disabled={!inputValue || !inputNumber}
+                disabled={!inputValue || !inputNumber || !inputCategoryValue}
                 onClick={handleSave}
             >
                 Add Product
             </button>
+            </div>
             </div>
             <br />
             <ProductList products={products} addToCart={addToCart} onlyList />
