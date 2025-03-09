@@ -1,38 +1,65 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+import { AppBar, Toolbar, Typography, Avatar, Stack, Box, Button } from "@mui/material";
 
 const Navbar = () => {
-  return (
-    <nav className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-lg">
-      <div className="max-w-6xl mx-auto flex justify-between items-center" style={{ display: "flex", width: "1534px", backgroundColor: "Black" }}>
-        <img src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F4c6f86c4-283e-40cf-b055-2864a048337a-shopping.png" style={{ width: "50px", height: "50px", borderRadius: "2%", marginLeft: "50px", marginTop: "10px" }} />
-        <h1 className="text-white text-2xl font-extrabold" style={{ marginLeft: "15px", color: "white" }}>ShopEase</h1>
-        <ul className="flex w-4/5 justify-between mt-[30px]" style={{ display: "flex", width: "80%", justifyContent: "space-between", marginTop: "30px", textDecoration: "none" }}>
-          {[
-            { to: "/", label: "Home" },
-            { to: "/aboutus", label: "About Us" },
-            { to: "/products", label: "Products" },
-            { to: "/contact", label: "Contact" }
-          ].map((item, index) => (
-            <li key={index}>
-              <Link
-                to={item.to}
-                className="text-white text-lg font-medium hover:text-gray-300 transition duration-300 no-underline"
-                style={{ color: "white", textDecoration: "none", fontSize: "large" }}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Stack direction="row" spacing={2}>
-        <Avatar alt="Remy Sharp" src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F39646165-c2ef-4be2-8c1e-acd989f9525a-blue-circle-with-white-user_78370-4707.jpg" style={{marginRight: "20px", marginLeft: "20px", marginTop: "20px"}} />
-        </Stack>
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/aboutus", label: "About Us" },
+    { to: "/products", label: "Products" },
+    { to: "/contact", label: "Contact" },
+  ];
 
-      </div>
-    </nav>
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        background: "linear-gradient(to right,rgb(0, 0, 0),rgb(0, 0, 0))",
+        boxShadow: 3,
+      }}
+    >
+      <Toolbar sx={{  width: "100%" }}>
+        <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 ,paddingLeft: "26px" ,maxWidth:"850px"}}>
+          <Avatar
+            src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F4c6f86c4-283e-40cf-b055-2864a048337a-shopping.png"
+            alt="ShopEase Logo"
+            sx={{ width: 50, height: 50, borderRadius: "2%", mr: 2 }}
+          />
+          <Typography variant="h5" fontWeight="bold" color="white" >
+            ShopEase
+          </Typography>
+        </Box>
+
+        {/* Navigation Links */}
+        <Box sx={{ display: "flex", gap: 5, mx: 2 }}>
+          {navItems.map((item, index) => (
+            <Button
+              key={index}
+              component={Link}
+              to={item.to}
+              sx={{
+                color: "white",
+                textTransform: "none",
+                fontSize: "1rem",
+                fontWeight: "medium",
+                "&:hover": { color: "grey.300" },
+              }}
+            >
+              {item.label}
+            </Button>
+          ))}
+        </Box>
+
+        {/* User Avatar */}
+        <Stack direction="row" spacing={2}>
+          <Avatar
+            alt="User"
+            src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F39646165-c2ef-4be2-8c1e-acd989f9525a-blue-circle-with-white-user_78370-4707.jpg"
+            sx={{ width: 50, height: 50 }}
+          />
+        </Stack>
+      </Toolbar>
+    </AppBar>
   );
 };
 
