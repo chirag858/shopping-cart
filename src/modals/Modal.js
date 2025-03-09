@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import ProductList from "../ProductList";
 import { useCart } from "../context/CartContextProvider";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
 
 const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
     const { products, addToCart } = useCart();
@@ -15,7 +22,7 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
             name: inputValue,
             category: inputCategoryValue,
             price: parseFloat(inputNumber) || 0,
-            images : ProductImages
+            images: ProductImages
         });
         console.log(ProductImages);
         setInputValue("");
@@ -31,16 +38,16 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
             onRequestClose={onRequestClose}
             contentLabel="Add Product Modal"
         >
-            <button
+            <Button
                 onClick={onRequestClose}
                 style={{ display: "flex", float: "right" }}
             >
                 Close
-            </button>
+            </Button>
             <h2>Add Products</h2>
             <div style={{ display: "flex", justifyContent: "space-between", width: "1350px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-                    <input
+                    <TextField
                         className="input-text"
                         type="text"
                         style={{ width: "250px", height: "25px" }}
@@ -48,18 +55,23 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                         onChange={(e) => setInputValue(e.target.value)}
                         placeholder="Enter a product name..."
                     />
-                    <select
+                    <FormControl >
+                    <InputLabel id="demo-simple-select-label" style={{color: "#A2A2A2"}}>Categories</InputLabel>
+
+                    <Select
                         className="input-select"
-                        style={{ width: "250px", height: "30px" }}
+                        style={{ width: "250px", height: "57px" }}
                         value={inputCategoryValue}
+                        label="Categories"
                         onChange={(e) => setInputCategoryValue(e.target.value)}
                     >
-                        <option value="">Select Category</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Cosmetics">Cosmetics</option>
-                        <option value="HouseHold">HouseHold</option>
-                    </select>
-                    <input
+                        <MenuItem value="">Select Category</MenuItem>
+                        <MenuItem value="Electronics">Electronics</MenuItem>
+                        <MenuItem value="Cosmetics">Cosmetics</MenuItem>
+                        <MenuItem value="HouseHold">HouseHold</MenuItem>
+                    </Select>
+                    </FormControl>
+                    <TextField
                         className="input-text"
                         type="number"
                         style={{ width: "250px", height: "25px" }}
@@ -68,23 +80,23 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                         placeholder="Enter a price"
                     />
                     <div style={{ position: "relative", width: "250px" }}>
-                        <label
+                        <Button
                             htmlFor="file-upload"
                             style={{
                                 display: "block",
                                 width: "100%",
-                                height: "30px",
+                                height: "55px",
                                 lineHeight: "25px",
                                 textAlign: "center",
-                                border: "1px solid Black",
+                                border: "1px solid #B9B8B8",
                                 cursor: "pointer",
                                 fontSize: "14px",
-                                color: "#555"
+                                color: "#A2A2A2"
                             }}
                         >
                             Add Images
-                        </label>
-                        <input
+                        </Button>
+                        <TextField
                             id="file-upload"
                             type="file"
                             multiple
@@ -99,17 +111,17 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                                 opacity: "0",
                                 cursor: "pointer",
                             }}
-                            onChange={(e) => setProductImages((prevImage) => [...prevImage,...e.target.files])}
+                            onChange={(e) => setProductImages((prevImage) => [...prevImage, ...e.target.files])}
                         />
                     </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-around", width: "300px" }} >
-                    <button
+                    <Button
                         disabled={!inputValue || !inputNumber || !inputCategoryValue}
                         onClick={handleSave}
                     >
                         Add Product
-                    </button>
+                    </Button>
                 </div>
             </div>
             <br />

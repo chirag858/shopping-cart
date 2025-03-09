@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartContextProvider } from "./context/CartContextProvider.jsx"; // Use named import
+import CssBaseline from '@mui/material/CssBaseline';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CartContextProvider>
     <App />
+    <CssBaseline />
   </CartContextProvider>
 );
 

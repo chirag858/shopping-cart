@@ -3,6 +3,7 @@ import ProductList from "./ProductList";
 import Cart from "./Cart";
 import AddProductModal from "./modals/Modal";
 import { useCart } from "./context/CartContextProvider";
+import Button from '@mui/material/Button';
 
 function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -20,9 +21,9 @@ function Home() {
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <h1>🛒 Shopping Cart 🛒</h1>
-      <button className="add-product-button" onClick={() => setModalIsOpen(true)}>
+      <Button variant="contained" onClick={() => setModalIsOpen(true)}>
         Add Products
-      </button>
+      </Button>
       <AddProductModal
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}

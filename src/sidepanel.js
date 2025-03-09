@@ -6,7 +6,7 @@ const Sidebar = (flexValue, heightValue) => {
         <nav className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-lg" style={{ flex: flexValue }}>
             <div className="max-w-6xl mx-auto flex justify-between items-center" style={{ display: "flex", heigth: "500px", width: "234px", backgroundColor: "Black" }}>
                 <h1 className="text-white text-2xl font-extrabold" style={{ marginLeft: "15px", color: "white" }}></h1>
-                <ul className="flex justify-between w-4/5 h-[585px] mt-[30px]" style={{ width: "80%", height: "585px", marginTop: "30px", textDecoration: "none" }}>
+                <ul className="flex justify-between w-4/5 h-[575px] mt-[30px]" style={{ width: "80%", height: "580px", marginTop: "30px", textDecoration: "none" }}>
                     {[
                         { to: "/", label: "Dashboard" },
                         { to: "/Orders", label: "Orders" },
