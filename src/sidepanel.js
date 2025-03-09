@@ -9,8 +9,8 @@ const Sidebar = (flexValue, heightValue) => {
                 <ul className="flex justify-between w-4/5 h-[585px] mt-[30px]" style={{ width: "80%", height: "585px", marginTop: "30px", textDecoration: "none" }}>
                     {[
                         { to: "/", label: "Dashboard" },
-                        { to: "/aboutus", label: "Orders" },
-                        { to: "/products", label: "Categories" },
+                        { to: "/Orders", label: "Orders" },
+                        { to: "/Categories", label: "Categories" },
                         { to: "/analytics", label: "Analytics" },
                         { to: "/reports", label: "Reports" },
                         { to: "/promocode", label: "Promo Code" },

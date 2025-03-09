@@ -59,16 +59,6 @@ const AddProductModal = ({ isOpen, onRequestClose, onSave }) => {
                         <option value="Cosmetics">Cosmetics</option>
                         <option value="HouseHold">HouseHold</option>
                     </select>
-                    {/* <input
-                        type="file"
-                        multiple
-                        accept="image/*"
-                        className="input-file"
-                        style={{ marginTop: "-1px",width: "250px", height: "25px" }}
-                        onChange={(e) => setProductImages(e.target.files)}
-                        placeholder="add images"
-                    /> */}
-
                     <input
                         className="input-text"
                         type="number"
