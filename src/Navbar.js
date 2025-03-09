@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 const Navbar = () => {
   return (
@@ -25,7 +27,9 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <img src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F39646165-c2ef-4be2-8c1e-acd989f9525a-blue-circle-with-white-user_78370-4707.jpg" style={{ width: "50px", height: "50px", borderRadius: "100%", marginRight: "20px", marginLeft: "20px", marginTop: "10px" }} />
+        <Stack direction="row" spacing={2}>
+        <Avatar alt="Remy Sharp" src="https://ultragyms3.s3.ap-south-1.amazonaws.com/portl%2Fimages%2F39646165-c2ef-4be2-8c1e-acd989f9525a-blue-circle-with-white-user_78370-4707.jpg" style={{marginRight: "20px", marginLeft: "20px", marginTop: "20px"}} />
+        </Stack>
 
       </div>
     </nav>

@@ -13,7 +13,16 @@ function App() {
       <Navbar />
       <div style={{ display: "flex", height: "628px" }}>
         <Sidebar flex={"0.2"} height={"628px"} />
-        <div className="container mx-auto p-4" style={{ flex: "0.9" }}>
+        <div
+          style={{
+            flex: "0.9",
+            overflowY: "scroll",
+            padding: "16px",
+            scrollbarWidth: "thin", // For Firefox
+            scrollbarColor: "#888 transparent", // For Firefox
+          }}
+          className="custom-scrollbar" // Add a class for custom scrollbar styling
+        >
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/aboutus" exact element={<AboutUs />} />
@@ -22,6 +31,28 @@ function App() {
           </Routes>
         </div>
       </div>
+
+      {/* Add custom scrollbar styles */}
+      <style>
+        {`
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
+          }
+
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent; /* Track color */
+          }
+
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888; /* Thumb color */
+            border-radius: 4px; /* Rounded corners */
+          }
+
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Thumb color on hover */
+          }
+        `}
+      </style>
     </Router>
   );
 }
